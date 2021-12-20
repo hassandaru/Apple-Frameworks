@@ -8,30 +8,46 @@
 import SwiftUI
 
 struct FrameworkGridView: View {
-    @State var maximumSubViewWidth: CGFloat = 0
+    //    @State var maximumSubViewWidth: CGFloat = 0
+    //
+    //    var body: some View {
+    //        ZStack {
+    //            BackgroundView()
+    //            HStack {
+    //
+    //                FrameworkTitleView(imageName: "app-clip", appName: "App Christine", maximumSubViewWidth: $maximumSubViewWidth)
+    //                FrameworkTitleView(imageName: "app-clip", appName: "App Jamy", maximumSubViewWidth: $maximumSubViewWidth)
+    //                FrameworkTitleView(imageName: "app-clip", appName: "App William", maximumSubViewWidth: $maximumSubViewWidth)
+    //
+    //
+    //
+    //            }
+    //        }
+    //        .onPreferenceChange(DetermineWidth.Key.self)
+    //                {
+    //                    maximumSubViewWidth = $0
+    //                }
+    //
+    let columns : [GridItem] = [GridItem(.flexible()),
+                                GridItem(.flexible()),
+                                GridItem(.flexible())]
     
     var body: some View {
-        ZStack {
-            BackgroundView()
-            HStack {
-                
-                FrameworkTitleView(imageName: "app-clip", appName: "App Christine", maximumSubViewWidth: $maximumSubViewWidth)
-                FrameworkTitleView(imageName: "app-clip", appName: "App Jamy", maximumSubViewWidth: $maximumSubViewWidth)
-                FrameworkTitleView(imageName: "app-clip", appName: "App William", maximumSubViewWidth: $maximumSubViewWidth)
-                
-                
+        LazyVGrid(columns: columns) {
+            FrameworkTitleView(imageName: "app-clip", appName: "App Clips")
+            FrameworkTitleView(imageName: "app-clip", appName: "App Clips")
+            FrameworkTitleView(imageName: "app-clip", appName: "App Clips")
+            FrameworkTitleView(imageName: "app-clip", appName: "App Clips")
+            FrameworkTitleView(imageName: "app-clip", appName: "App Clips")
+            FrameworkTitleView(imageName: "app-clip", appName: "App Clips")
 
-            }
         }
-        .onPreferenceChange(DetermineWidth.Key.self)
-                {
-                    maximumSubViewWidth = $0
-                }
         
     }
 }
 
 struct FrameworkGridView_Previews: PreviewProvider {
+    
     static var previews: some View {
         FrameworkGridView()
     }
@@ -81,8 +97,23 @@ struct DetermineWidth: View
 struct FrameworkTitleView: View {
     var imageName: String
     var appName: String
-    @Binding var maximumSubViewWidth: CGFloat
+//    @Binding var maximumSubViewWidth: CGFloat
     
+//    var body: some View {
+//        VStack {
+//            Image(imageName)
+//                .resizable()
+//                .frame(width: 90, height: 90)
+//            Text(appName)
+//                .font(.title2)
+//                .fontWeight(.semibold)
+//                .scaledToFit()
+//                .minimumScaleFactor(0.6)
+////                .frame(minWidth: maximumSubViewWidth)
+//        }
+////        .overlay(DetermineWidth())
+//    }
+/////SOLUTION BY SEAN ALLEN//////
     var body: some View {
         VStack {
             Image(imageName)
@@ -92,9 +123,12 @@ struct FrameworkTitleView: View {
                 .font(.title2)
                 .fontWeight(.semibold)
                 .scaledToFit()
-                .minimumScaleFactor(0.6)
-                .frame(minWidth: maximumSubViewWidth)
+                .minimumScaleFactor(0.5)
         }
-        .overlay(DetermineWidth())
     }
+    /////SOLUTION BY SEAN ALLEN//////
+
+    
 }
+
+

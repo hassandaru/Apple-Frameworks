@@ -12,6 +12,8 @@
 		7E54B0DF2764430A00526B3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E54B0DE2764430A00526B3D /* Preview Assets.xcassets */; };
 		7E54B0E8276489E200526B3D /* Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E54B0E7276489E200526B3D /* Framework.swift */; };
 		7E54B0EA27648B7A00526B3D /* FrameworkGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E54B0E927648B7A00526B3D /* FrameworkGridView.swift */; };
+		7E6339BA2771C6D700E9F589 /* FrameworkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6339B92771C6D700E9F589 /* FrameworkDetailView.swift */; };
+		7E6339BC278463F500E9F589 /* APButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6339BB278463F500E9F589 /* APButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		7E54B0DE2764430A00526B3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7E54B0E7276489E200526B3D /* Framework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Framework.swift; sourceTree = "<group>"; };
 		7E54B0E927648B7A00526B3D /* FrameworkGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkGridView.swift; sourceTree = "<group>"; };
+		7E6339B92771C6D700E9F589 /* FrameworkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkDetailView.swift; sourceTree = "<group>"; };
+		7E6339BB278463F500E9F589 /* APButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 		7E54B0D62764430100526B3D /* Apple-Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E6339B92771C6D700E9F589 /* FrameworkDetailView.swift */,
+				7E6339BB278463F500E9F589 /* APButton.swift */,
 				7E54B0D72764430100526B3D /* Apple_FrameworksApp.swift */,
 				7E54B0E7276489E200526B3D /* Framework.swift */,
 				7E54B0E927648B7A00526B3D /* FrameworkGridView.swift */,
@@ -141,7 +147,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E54B0EA27648B7A00526B3D /* FrameworkGridView.swift in Sources */,
+				7E6339BA2771C6D700E9F589 /* FrameworkDetailView.swift in Sources */,
 				7E54B0E8276489E200526B3D /* Framework.swift in Sources */,
+				7E6339BC278463F500E9F589 /* APButton.swift in Sources */,
 				7E54B0D82764430100526B3D /* Apple_FrameworksApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,15 +33,21 @@ struct FrameworkGridView: View {
                                 GridItem(.flexible())]
     
     var body: some View {
-        LazyVGrid(columns: columns) {
-            FrameworkTitleView(imageName: "app-clip", appName: "App Clips")
-            FrameworkTitleView(imageName: "app-clip", appName: "App Clips")
-            FrameworkTitleView(imageName: "app-clip", appName: "App Clips")
-            FrameworkTitleView(imageName: "app-clip", appName: "App Clips")
-            FrameworkTitleView(imageName: "app-clip", appName: "App Clips")
-            FrameworkTitleView(imageName: "app-clip", appName: "App Clips")
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: columns) {
+        //            FrameworkTitleView(imageName: "app-clip", appName: "App Clips")
+                    ForEach(MockData.frameworks,  id: \.id) { framework in
+                        FrameworkTitleView(selectedFramework: framework)
+                        
+                    }
 
+                }
+                .navigationTitle("🍏 Frameworks")
+            }
+            
         }
+        
         
     }
 }
@@ -50,6 +56,7 @@ struct FrameworkGridView_Previews: PreviewProvider {
     
     static var previews: some View {
         FrameworkGridView()
+            .preferredColorScheme(.dark)
     }
 }
 
@@ -95,8 +102,9 @@ struct DetermineWidth: View
 ////////////////////////CODE USED TO DETERMINE WIDTH/////////////////////
 
 struct FrameworkTitleView: View {
-    var imageName: String
-    var appName: String
+    let selectedFramework: Framework
+//    var imageName: String
+//    var appName: String
 //    @Binding var maximumSubViewWidth: CGFloat
     
 //    var body: some View {
@@ -116,15 +124,16 @@ struct FrameworkTitleView: View {
 /////SOLUTION BY SEAN ALLEN//////
     var body: some View {
         VStack {
-            Image(imageName)
+            Image(selectedFramework.imageName)
                 .resizable()
                 .frame(width: 90, height: 90)
-            Text(appName)
+            Text(selectedFramework.name)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .scaledToFit()
                 .minimumScaleFactor(0.5)
         }
+        .padding()
     }
     /////SOLUTION BY SEAN ALLEN//////
 

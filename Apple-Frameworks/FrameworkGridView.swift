@@ -28,6 +28,11 @@ struct FrameworkGridView: View {
     //                    maximumSubViewWidth = $0
     //                }
     //
+    //when initialising a brand new model , use stateobject
+    //when initialising with already object, use observe object
+    
+    @StateObject var viewModel = FrameworkGridViewModel()
+    
     let columns : [GridItem] = [GridItem(.flexible()),
                                 GridItem(.flexible()),
                                 GridItem(.flexible())]
@@ -39,11 +44,17 @@ struct FrameworkGridView: View {
         //            FrameworkTitleView(imageName: "app-clip", appName: "App Clips")
                     ForEach(MockData.frameworks,  id: \.id) { framework in
                         FrameworkTitleView(selectedFramework: framework)
+                            .onTapGesture {
+                                viewModel.selectedFramework = framework
+                            }
                         
                     }
 
                 }
                 .navigationTitle("🍏 Frameworks")
+                .sheet(isPresented: $viewModel.isShowingDetailsView) {
+                    FrameworkDetailView(framework: viewModel.selectedFramework ?? MockData.sampleDataFramework, isShowingDetailView: $viewModel.isShowingDetailsView )
+                }
             }
             
         }
